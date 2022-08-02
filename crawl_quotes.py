@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import json
 
 
 def createTotaltags(soup):
@@ -76,4 +77,5 @@ quotes, totalAuthor = creatingQuotesList()
 uniqueAuthorList = createuniqueauthorsList(totalAuthor)
 author = createauthorlist(uniqueAuthorList)
 quotesAndAuthorsList = {"quotes": quotes, "author": author}
-print(quotesAndAuthorsList)
+with open("data.json", 'w') as f:
+    json.dump(quotesAndAuthorsList, f)
